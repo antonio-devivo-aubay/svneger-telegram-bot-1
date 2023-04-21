@@ -41,7 +41,15 @@ async def set_webhook_async():
     return await bot.setWebhook(url=webhook_url)
 
 async def send_message(chat_id, message):
-    await bot.sendMessage(chat_id=chat_id, text=message)
+    timeout = 100000000
+    await bot.sendMessage(
+        chat_id=chat_id, 
+        text=message, 
+        read_timeout=timeout,
+        write_timeout=timeout,
+        connect_timeout=timeout,
+        pool_timeout=timeout,
+    )
 
 @app.route('/setwebhook', methods=['GET', 'POST'])
 def set_webhook():

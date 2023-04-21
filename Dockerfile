@@ -14,7 +14,7 @@ RUN pip install --trusted-host pypi.python.org -r requirements.txt
 COPY . .
 
 # Expose port 5000 for the Flask application
-EXPOSE 8443
+EXPOSE 443
 
 # Start the Flask application using gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8443", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:443", "app:app"]

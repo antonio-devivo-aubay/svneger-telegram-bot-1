@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 443
 
 # Start the Flask application using gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:443", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:443", "--debug", "--log-level", "debug", "app:app"]

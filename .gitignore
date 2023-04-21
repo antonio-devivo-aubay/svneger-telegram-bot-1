@@ -1,0 +1,8 @@
+*.pyc
+/venv/
+.DS_Store
+/tmp
+/.env
+__pycache__/
+
+.venv-new

@@ -37,7 +37,7 @@ def index():
 # Set Telegram webhook URL
 #
 async def set_webhook_async():
-    webhook_url = '{URL}{HOOK}'.format(URL=URL, HOOK=TOKEN)
+    webhook_url = '{URL}{HOOK}'.format(URL=URL, HOOK="WEBHOOK_ROUTE")
     return await bot.setWebhook(url=webhook_url)
 
 async def send_message(chat_id, message):
@@ -55,7 +55,7 @@ def set_webhook():
 #
 # Main Telegram 'callback' URL
 #
-@app.route('/{}'.format(TOKEN), methods=['POST'])
+@app.route('/WEBHOOK_ROUTE', methods=['POST'])
 def respond():
     print("sono in respond")
     # retrieve the message in JSON and then transform it to Telegram object

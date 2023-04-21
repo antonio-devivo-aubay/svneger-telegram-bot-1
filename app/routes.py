@@ -53,7 +53,7 @@ def set_webhook():
 #
 # Main Telegram 'callback' URL
 #
-@app.route('/WEBHOOK_ROUTE', methods=['POST'])
+@app.route('/{}'.format(TOKEN), methods=['POST'])
 def respond():
     print("sono in respond")
     # retrieve the message in JSON and then transform it to Telegram object

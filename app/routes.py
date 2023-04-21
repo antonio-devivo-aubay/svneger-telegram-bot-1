@@ -40,7 +40,9 @@ async def set_webhook_async():
     webhook_url = '{URL}{HOOK}'.format(URL=URL, HOOK=TOKEN)
     return await bot.setWebhook(url=webhook_url)
 
-    
+async def send_message(chat_id, message):
+    await bot.sendMessage(chat_id=chat_id, text=message)
+
 @app.route('/setwebhook', methods=['GET', 'POST'])
 def set_webhook():
     s = asyncio.run(set_webhook_async())
@@ -76,6 +78,6 @@ def respond():
 
         response = get_response(text)
         if response is not None:
-            bot.sendMessage(chat_id=chat_id, text=response)
+            asyncio.run(send_message(chat_id, response))
 
     return 'ok'
